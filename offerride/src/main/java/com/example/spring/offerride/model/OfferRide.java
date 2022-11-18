@@ -19,7 +19,7 @@ public class OfferRide {
 	// @GeneratedValue(strategy = GenerationType.AUTO)
 	//private int id;
 	@Id
-    private int u_id;
+    private int uid;
     private String name;    
     private String phone;
     private String v_no;
@@ -29,12 +29,7 @@ public class OfferRide {
     private String dest_time;
     private String license_no;
     private int price;
-	public int getU_id() {
-		return u_id;
-	}
-	public void setU_id(int u_id) {
-		this.u_id = u_id;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -88,6 +83,12 @@ public class OfferRide {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
     
 

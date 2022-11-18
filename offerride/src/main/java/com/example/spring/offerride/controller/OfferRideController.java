@@ -46,7 +46,7 @@ public class OfferRideController {
                                                    @RequestBody OfferRide Details) throws ResourceNotFoundException {
     	OfferRide offerride = offerrideRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + id));
-    	offerride.setU_id(Details.getU_id());
+    	offerride.setUid(Details.getUid());
     	offerride.setName(Details.getName());
     	offerride.setV_no(Details.getV_no());
     	offerride.setPhone(Details.getPhone());

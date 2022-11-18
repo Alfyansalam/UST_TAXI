@@ -2,7 +2,7 @@ package com.usttaxi.passenger.VO;
 
 public class OfferRide {
 	
-    private int u_id;
+    private int uid;
     private String name;    
     private String phone;
     private String v_no;
@@ -12,11 +12,13 @@ public class OfferRide {
     private String dest_time;
     private String license_no;
     private int price;
-	public int getU_id() {
-		return u_id;
+	
+	
+	public int getUid() {
+		return uid;
 	}
-	public void setU_id(int u_id) {
-		this.u_id = u_id;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 	public String getName() {
 		return name;
