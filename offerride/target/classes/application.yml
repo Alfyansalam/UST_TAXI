@@ -1,0 +1,46 @@
+
+  
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+spring:
+  application:
+    name: offerride
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/testdb?useSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    
+server:
+  port: 9011
+
+
+
+eureka:
+  instance:
+    hostname: localhost    
+  
+  
+app:
+   name: spring boot application
+   api:
+     title: Spring Boot APIs
+     version: 3.0.0
+     description: Spring Boot APIs description
+     base-package: com.example.angular.springbootcrudapi.controller
+     contact-name: apisupportgroup
+     contact-email: alfyaleena@gmail.com
+     
+     swagger:
+      enable: true
