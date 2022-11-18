@@ -17,9 +17,10 @@ public class Passenger {
 	
 	@Id
 	@GeneratedValue
-	private int p_uid;
-	private String trip_id;
 	private int uid;
+	private int p_uid;
+	private int tripid;
+	
 	
 	
 	private String d_name;
@@ -41,12 +42,7 @@ public class Passenger {
 	public void setPriceperkm(float priceperkm) {
 		this.priceperkm = priceperkm;
 	}
-	public String getTrip_id() {
-		return trip_id;
-	}
-	public void setTrip_id(String trip_id) {
-		this.trip_id = trip_id;
-	}
+	
 
 	
 	public int getP_uid() {
@@ -108,6 +104,12 @@ public class Passenger {
 	}
 	public void setUid(int uid) {
 		this.uid = uid;
+	}
+	public int getTripid() {
+		return tripid;
+	}
+	public void setTripid(int tripid) {
+		this.tripid = tripid;
 	}
 	
 	

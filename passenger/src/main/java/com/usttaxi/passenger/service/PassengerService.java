@@ -23,10 +23,10 @@ public class PassengerService {
 	        return passengerRepo.save(passenger);
 	    }
 	 
-	public ResponseTemplateVO getPassengerWithOffer(int u_id) {
+	public ResponseTemplateVO getPassengerWithOffer(int uid) {
 		
 	       ResponseTemplateVO vo = new ResponseTemplateVO();
-	       Passenger passenger = passengerRepo.findByUid(u_id);
+	       Passenger passenger = passengerRepo.findByUid(uid);
 
 
 

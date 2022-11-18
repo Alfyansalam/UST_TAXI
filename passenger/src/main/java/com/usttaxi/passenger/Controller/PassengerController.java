@@ -39,9 +39,9 @@ public class PassengerController {
        
         return passengerService.saveUser(passenger);
     }
-	@GetMapping("/getActiveTrip/{u_id}")     
-	public ResponseTemplateVO getPassengerWithOffer(@PathVariable("u_id") int u_id) {
-		return passengerService.getPassengerWithOffer(u_id);
+	@GetMapping("/getActiveTrip/{uid}")     
+	public ResponseTemplateVO getPassengerWithOffer(@PathVariable("uid") int uid) {
+		return passengerService.getPassengerWithOffer(uid);
 	}
 	
 

@@ -32,20 +32,20 @@ public class OfferRideController {
         return ResponseEntity.ok(offerrideRepository.findAll());
     }
 
-    @GetMapping("/offer/{u_id}")
-    public ResponseEntity<OfferRide> getOfferById(@PathVariable(value = "u_id") Integer id)
+    @GetMapping("/offer/{uid}")
+    public ResponseEntity<OfferRide> getOfferById(@PathVariable(value = "uid") Integer uid)
             throws ResourceNotFoundException {
-        OfferRide offerrideRespository = offerrideRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + id));
+        OfferRide offerrideRespository = offerrideRepository.findById(uid)
+                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + uid));
         return ResponseEntity.ok().body(offerrideRespository);
     }
 
-    @PutMapping("/offer/{u_id}")
-    public ResponseEntity<OfferRide> updateOffer(@PathVariable(value = "u_id") Integer id,
+    @PutMapping("/offer/{uid}")
+    public ResponseEntity<OfferRide> updateOffer(@PathVariable(value = "uid") Integer uid,
    
                                                    @RequestBody OfferRide Details) throws ResourceNotFoundException {
-    	OfferRide offerride = offerrideRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + id));
+    	OfferRide offerride = offerrideRepository.findById(uid)
+                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + uid));
     	offerride.setUid(Details.getUid());
     	offerride.setName(Details.getName());
     	offerride.setV_no(Details.getV_no());
@@ -56,17 +56,18 @@ public class OfferRideController {
     	offerride.setDest_time(Details.getDest_time());
     	offerride.setLicense_no(Details.getLicense_no());
     	offerride.setPrice(Details.getPrice());
+    	offerride.setKms(Details.getKms());
         
 
         final OfferRide updated = offerrideRepository.save(offerride);
         return ResponseEntity.ok(updated);
     }
 
-    @DeleteMapping("/offer/{u_id}")
-    public Map<String, Boolean> deleteOffer(@PathVariable(value = "u_id") Integer id)
+    @DeleteMapping("/offer/{uid}")
+    public Map<String, Boolean> deleteOffer(@PathVariable(value = "uid") Integer uid)
             throws ResourceNotFoundException {
-        OfferRide offerride = offerrideRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + id));
+        OfferRide offerride = offerrideRepository.findById(uid)
+                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + uid));
 
         offerrideRepository.delete(offerride);
         Map<String, Boolean> response = new HashMap<>();

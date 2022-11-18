@@ -1,5 +1,10 @@
 package com.usttaxi.passenger.VO;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
 public class OfferRide {
 	
     private int uid;

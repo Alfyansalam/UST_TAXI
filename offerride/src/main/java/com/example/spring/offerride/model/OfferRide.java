@@ -29,6 +29,7 @@ public class OfferRide {
     private String dest_time;
     private String license_no;
     private int price;
+    private int kms;
 	
 	public String getName() {
 		return name;
@@ -89,6 +90,12 @@ public class OfferRide {
 	}
 	public void setUid(int uid) {
 		this.uid = uid;
+	}
+	public int getKms() {
+		return kms;
+	}
+	public void setKms(int kms) {
+		this.kms = kms;
 	}
     
 
