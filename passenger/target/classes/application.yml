@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: passenger
+
+eureka:
+  instance:
+    hostname: localhost  

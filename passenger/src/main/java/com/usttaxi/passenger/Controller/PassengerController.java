@@ -16,6 +16,7 @@ import com.usttaxi.passenger.VO.OfferRide;
 import com.usttaxi.passenger.VO.ResponseTemplateVO;
 import com.usttaxi.passenger.model.Passenger;
 import com.usttaxi.passenger.repo.PassengerRepo;
+import com.usttaxi.passenger.service.PassengerService;
 
 
 @RestController
@@ -23,26 +24,24 @@ import com.usttaxi.passenger.repo.PassengerRepo;
 public class PassengerController {
 	
 	
+
+
 	@Autowired
-	private PassengerRepo passengerrepo;
+	private PassengerService passengerService;
 	
-	@Autowired
-	private RestTemplate restTemplate;
 	
-	public ResponseTemplateVO getUserWithDepartment(Long userId) {
-		return null;
-	       //log.info("Inside getUserWithDepartment of UserService");
-	        
-	    }
+	
+	
+
 	
 	@PostMapping("/addPassenger")
-	public Passenger bookride(@RequestBody Passenger passenger){
-		
-		return passengerrepo.save(passenger);
-	}
-	@GetMapping("/getActiveTrip")     
-	public ResponseEntity<List<Passenger>> getAllDrivers() {		
-	    return ResponseEntity.ok(vo.findAll());
+    public Passenger saveUser(@RequestBody Passenger passenger) {
+       
+        return passengerService.saveUser(passenger);
+    }
+	@GetMapping("/getActiveTrip/{u_id}")     
+	public ResponseTemplateVO getPassengerWithOffer(@PathVariable("u_id") int u_id) {
+		return passengerService.getPassengerWithOffer(u_id);
 	}
 	
 

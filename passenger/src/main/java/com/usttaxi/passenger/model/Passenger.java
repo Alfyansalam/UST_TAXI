@@ -5,15 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Passenger_Table")
 public class Passenger {
 	
+	
+	
 	@Id
 	@GeneratedValue
+	private int p_uid;
 	private String trip_id;
-	private String d_uid;
-	private String p_uid;
+	private int uid;
+	
 	
 	private String d_name;
 	private String p_name;
@@ -40,16 +47,12 @@ public class Passenger {
 	public void setTrip_id(String trip_id) {
 		this.trip_id = trip_id;
 	}
-	public String getD_uid() {
-		return d_uid;
-	}
-	public void setD_uid(String d_uid) {
-		this.d_uid = d_uid;
-	}
-	public String getP_uid() {
+
+	
+	public int getP_uid() {
 		return p_uid;
 	}
-	public void setP_uid(String p_uid) {
+	public void setP_uid(int p_uid) {
 		this.p_uid = p_uid;
 	}
 	public String getD_name() {
@@ -99,6 +102,12 @@ public class Passenger {
 	}
 	public void setFee(int fee) {
 		this.fee = fee;
+	}
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 	
 	
