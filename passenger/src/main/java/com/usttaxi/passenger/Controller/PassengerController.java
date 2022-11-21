@@ -48,6 +48,7 @@ public class PassengerController {
 		Passenger passenger = passengerRepo.findById(uid)
 .orElseThrow(() -> new ResourceNotFoundException("passenger not found for this id :: " + uid));
 passenger.setTripid(tripid);
+ 
 
 
 

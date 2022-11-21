@@ -18,17 +18,19 @@ import lombok.NoArgsConstructor;
 public class Payment {
 	
 	@Id
-	
+	@GeneratedValue
+	private int payid;
 	private int tripid;
-	private int pay_id;
+	
+	
 	private String pay_method;
 	private int fee;
 
-	public int getPay_id() {
-		return pay_id;
+	public int getPayid() {
+		return payid;
 	}
-	public void setPay_id(int pay_id) {
-		this.pay_id = pay_id;
+	public void setPay_id(int payid) {
+		this.payid = payid;
 	}
 	public String getPay_method() {
 		return pay_method;

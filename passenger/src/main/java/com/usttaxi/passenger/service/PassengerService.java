@@ -33,18 +33,19 @@ public class PassengerService {
 	       OfferRide offerRide =
 	                restTemplate.getForObject("http://OFFERRIDE-SERVICE/offerride/offer/" + tripid
 	                        ,OfferRide.class);
-
+passenger.setFee(offerRide.getPrice()*passenger.getKms());
 
 
 	       vo.setPassenger(passenger);
 	       vo.setOfferRide(offerRide);
-	       passenger.setTripid(vo.getOfferRide().getTripid());
+	       passengerRepo.save(passenger);
 
 
 	       return  vo;
-
+	      
 	}
 
+	
 	
 	
 

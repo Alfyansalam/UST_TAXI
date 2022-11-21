@@ -17,6 +17,7 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+	
 	<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -30,7 +31,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+   <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-zipkin</artifactId>
+    <version>2.2.8.RELEASE</version>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -41,6 +46,18 @@
     <groupId>org.springdoc</groupId>
     <artifactId>springdoc-openapi-ui</artifactId>
     <version>1.6.4</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/io.zipkin.java/zipkin-ui -->
+<dependency>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-ui</artifactId>
+    <version>2.12.11</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin -->
+<dependency>
+    <groupId>io.zipkin.zipkin2</groupId>
+    <artifactId>zipkin</artifactId>
+    <version>2.23.19</version>
 </dependency>
 
        
@@ -59,6 +76,11 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		   <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-zipkin</artifactId>
+    <version>2.2.8.RELEASE</version>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -94,6 +116,10 @@
     <groupId>org.apache.httpcomponents.core5</groupId>
     <artifactId>httpcore5</artifactId>
     <version>5.2</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
 </dependency>
 <dependency>
     <groupId>com.sun.jersey.contribs</groupId>

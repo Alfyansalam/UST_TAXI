@@ -7,6 +7,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
+		
 	</parent>
 	<groupId>com.spring</groupId>
 	<artifactId>login</artifactId>
@@ -26,7 +27,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/io.zipkin.zipkin2/zipkin -->
+<dependency>
+    <groupId>io.zipkin.zipkin2</groupId>
+    <artifactId>zipkin</artifactId>
+    <version>2.23.19</version>
+</dependency>
+
 		
 		<dependency>
 	    <groupId>org.springframework.boot</groupId>

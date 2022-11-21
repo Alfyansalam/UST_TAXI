@@ -8,5 +8,6 @@ import com.usttaxi.payment.model.Payment;
 @Repository
 public interface PaymentRepo extends JpaRepository<Payment,Integer> {
 	Payment findByTripid(int trip_id);
+	Payment findByPayid(int pay_id);
 
 }
