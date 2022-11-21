@@ -13,13 +13,11 @@ import com.usttaxi.payment.model.Payment;
 import com.usttaxi.payment.repo.PaymentRepo;
 import com.usttaxi.payment.service.PaymentService;
 
-import lombok.extern.slf4j.Slf4j;
 
 
 
 @RestController
 @RequestMapping("/payment")
-@Slf4j
 public class PaymentController {
 	
 	@Autowired
@@ -36,7 +34,7 @@ public class PaymentController {
 	@GetMapping("/{tripid}")     
     public ResponseTemplateVO getTripDetails(@PathVariable("tripid") int tripid) {
 		
-		log.info("Inside saveUser of UserController");
+		
 
 
         return paymentService.getTripDetails(tripid);
