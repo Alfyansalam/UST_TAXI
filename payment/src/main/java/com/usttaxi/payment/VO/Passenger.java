@@ -1,16 +1,18 @@
 package com.usttaxi.payment.VO;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Passenger {
 	
+	
+	
+	
+	private int uid;
+	private int p_uid;
 	private int tripid;
-	public int getTripid() {
-		return tripid;
-	}
-	public void setTripid(int tripid) {
-		this.tripid = tripid;
-	}
-	private String d_uid;
-	private String p_uid;
+	
+	
 	
 	private String d_name;
 	private String p_name;
@@ -23,17 +25,21 @@ public class Passenger {
 	
 	private int kms;
 	private int fee;
+	
+	private float priceperkm;
+	public float getPriceperkm() {
+		return priceperkm;
+	}
+	public void setPriceperkm(float priceperkm) {
+		this.priceperkm = priceperkm;
+	}
+	
 
-	public String getD_uid() {
-		return d_uid;
-	}
-	public void setD_uid(String d_uid) {
-		this.d_uid = d_uid;
-	}
-	public String getP_uid() {
+	
+	public int getP_uid() {
 		return p_uid;
 	}
-	public void setP_uid(String p_uid) {
+	public void setP_uid(int p_uid) {
 		this.p_uid = p_uid;
 	}
 	public String getD_name() {
@@ -42,17 +48,17 @@ public class Passenger {
 	public void setD_name(String d_name) {
 		this.d_name = d_name;
 	}
-	public String getP_name() {
-		return p_name;
-	}
-	public void setP_name(String p_name) {
-		this.p_name = p_name;
-	}
 	public String getD_no() {
 		return d_no;
 	}
 	public void setD_no(String d_no) {
 		this.d_no = d_no;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
 	}
 	public String getP_no() {
 		return p_no;
@@ -84,7 +90,20 @@ public class Passenger {
 	public void setFee(int fee) {
 		this.fee = fee;
 	}
-
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+	public int getTripid() {
+		return tripid;
+	}
+	public void setTripid(int tripid) {
+		this.tripid = tripid;
+	}
+	
+	
 	
 
 }

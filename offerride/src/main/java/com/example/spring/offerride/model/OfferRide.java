@@ -19,6 +19,8 @@ public class OfferRide {
 	// @GeneratedValue(strategy = GenerationType.AUTO)
 	//private int id;
 	@Id
+	@GeneratedValue
+	private int tripid;
     private int uid;
     private String name;    
     private String phone;
@@ -96,6 +98,12 @@ public class OfferRide {
 	}
 	public void setKms(int kms) {
 		this.kms = kms;
+	}
+	public int getTripid() {
+		return tripid;
+	}
+	public void setTripid(int tripid) {
+		this.tripid = tripid;
 	}
     
 

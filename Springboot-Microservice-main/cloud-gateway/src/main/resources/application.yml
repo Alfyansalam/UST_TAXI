@@ -1,0 +1,70 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: offerride-service
+          uri: lb://offerride-service
+          predicates:
+            - Path=/offerride/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: offerride-service
+                fallbackuri: forward:/offerrideServiceFallBack
+                
+                
+        - id: passenger-service
+          uri: lb://passenger-service
+          predicates:
+            - Path=/passenger/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: passenger-service
+                fallbackuri: forward:/passengerServiceFallBack
+                
+                
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payment/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: payment-service
+                fallbackuri: forward:/paymentServiceFallBack
+                
+                
+        - id: login-service
+          uri: lb://login-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: login-service
+                fallbackuri: forward:/loginServiceFallBack
+
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+eureka:
+  instance:
+    hostname: localhost

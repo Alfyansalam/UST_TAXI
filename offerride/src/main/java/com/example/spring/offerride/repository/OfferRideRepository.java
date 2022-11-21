@@ -8,4 +8,5 @@ import com.example.spring.offerride.model.OfferRide;
 
 @Repository
 public interface OfferRideRepository extends JpaRepository<OfferRide,Integer> {
+	
 }

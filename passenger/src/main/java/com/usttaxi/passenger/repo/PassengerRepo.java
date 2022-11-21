@@ -8,5 +8,6 @@ import com.usttaxi.passenger.model.Passenger;
 public interface PassengerRepo extends JpaRepository<Passenger,Integer> {
 	
 	Passenger findByUid(int uid);
+	Passenger findByTripid(int tripid);
 
 }

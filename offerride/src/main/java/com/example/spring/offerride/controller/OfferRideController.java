@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.spring.offeride.vo.ResponseTemplateVO;
 import com.example.spring.offerride.ResourceNotFoundException;
 import com.example.spring.offerride.model.OfferRide;
 import com.example.spring.offerride.repository.OfferRideRepository;
@@ -11,13 +12,15 @@ import com.example.spring.offerride.repository.OfferRideRepository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/offerride")
 public class OfferRideController {
 
-    @Autowired
+  
+	@Autowired
     private OfferRideRepository offerrideRepository;
 
     @PostMapping("/offer")
@@ -32,14 +35,18 @@ public class OfferRideController {
         return ResponseEntity.ok(offerrideRepository.findAll());
     }
 
-    @GetMapping("/offer/{uid}")
-    public ResponseEntity<OfferRide> getOfferById(@PathVariable(value = "uid") Integer uid)
+    @GetMapping("/offer/{tripid}")
+    public ResponseEntity<OfferRide> getOfferById(@PathVariable(value = "tripid") Integer tripid)
             throws ResourceNotFoundException {
-        OfferRide offerrideRespository = offerrideRepository.findById(uid)
-                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + uid));
+    	
+        OfferRide offerrideRespository = offerrideRepository.findById(tripid)
+                .orElseThrow(() -> new ResourceNotFoundException("OfferRide not found for this id :: " + tripid));
+        ResponseTemplateVO vo = new ResponseTemplateVO();
         return ResponseEntity.ok().body(offerrideRespository);
+        
     }
-
+    
+   
     @PutMapping("/offer/{uid}")
     public ResponseEntity<OfferRide> updateOffer(@PathVariable(value = "uid") Integer uid,
    

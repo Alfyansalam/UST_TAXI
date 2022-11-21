@@ -17,12 +17,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.login.models.ERole;
+import com.spring.login.models.EmailDetails;
 import com.spring.login.models.Role;
 import com.spring.login.models.User;
 import com.spring.login.payload.request.LoginRequest;
@@ -43,6 +46,9 @@ public class AuthController {
 
   @Autowired
   UserRepository userRepository;
+  
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 
   @Autowired
   RoleRepository roleRepository;
@@ -59,7 +65,7 @@ public class AuthController {
     Authentication authentication = authenticationManager
         .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
-    SecurityContextHolder.getContext().setAuthentication(authentication);
+  SecurityContextHolder.getContext().setAuthentication(authentication);
 
     UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
@@ -75,6 +81,26 @@ public class AuthController {
                                    userDetails.getEmail(),
                                    roles));
   }
+  
+  
+  
+  @PutMapping("/reset/{uid}")
+  public ResponseEntity<User> updateUser(@PathVariable(value = "uid") Long uid,
+                                                 @RequestBody EmailDetails emailDetails) throws ResourceNotFoundException {
+	  User user = userRepository.findById(uid)
+              .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + uid));
+
+	 
+	  
+	  user.setPassword(passwordEncoder.encode(emailDetails.getPassword()));
+	  
+	  
+      final User updatedUser = userRepository.save(user);
+      return ResponseEntity.ok(updatedUser);
+  }
+
+  
+  
 
   @PostMapping("/signup")
   public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {

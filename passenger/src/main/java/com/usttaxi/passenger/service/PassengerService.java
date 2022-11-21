@@ -23,22 +23,22 @@ public class PassengerService {
 	        return passengerRepo.save(passenger);
 	    }
 	 
-	public ResponseTemplateVO getPassengerWithOffer(int uid) {
+	public ResponseTemplateVO getPassengerWithOffer(int tripid) {
 		
 	       ResponseTemplateVO vo = new ResponseTemplateVO();
-	       Passenger passenger = passengerRepo.findByUid(uid);
-
+	    
+	       Passenger passenger = passengerRepo.findByTripid(tripid);
 
 
 	       OfferRide offerRide =
-	                restTemplate.getForObject("http://OFFERRIDE-SERVICE/offerride/offer/" + passenger.getUid()
+	                restTemplate.getForObject("http://OFFERRIDE-SERVICE/offerride/offer/" + tripid
 	                        ,OfferRide.class);
 
 
 
 	       vo.setPassenger(passenger);
 	       vo.setOfferRide(offerRide);
-
+	       passenger.setTripid(vo.getOfferRide().getTripid());
 
 
 	       return  vo;

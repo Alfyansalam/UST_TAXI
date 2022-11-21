@@ -6,6 +6,13 @@ public class ResponseTemplateVO {
 
 	private Payment payment;
 	private Passenger passenger;
+	private OfferRide offerRide;
+	public OfferRide getOfferRide() {
+		return offerRide;
+	}
+	public void setOfferRide(OfferRide offerRide) {
+		this.offerRide = offerRide;
+	}
 	public Payment getPayment() {
 		return payment;
 	}

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OfferRide {
-	
+	private int tripid;
     private int uid;
     private String name;    
     private String phone;
@@ -78,6 +78,12 @@ public class OfferRide {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public int getTripid() {
+		return tripid;
+	}
+	public void setTripid(int tripid) {
+		this.tripid = tripid;
 	}
     	
 
